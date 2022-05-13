@@ -181,7 +181,13 @@ public class Main {
 		String name;
 		String id;
 		int age;
-		double average;
+		int numSubjects;
+
+		double  valueNote1;
+		double valueNote2;
+		double valueNote3;
+		String nameSubject;
+		int creditsSubject;
 
 		System.out.println("Type the name");
 		name=sc.next();
@@ -192,10 +198,38 @@ public class Main {
 		System.out.println("Type the age");
 		age=sc.nextInt();
 
-		System.out.println("Type the average");
-		average=sc.nextDouble();
+		System.out.println("How many subjects do you want to register? (Max.3)");
+		numSubjects=sc.nextInt();
 
-		calculator.addStudent(name, id, age, average);
+		if (numSubjects<1){
+			numSubjects=1;
+		}
+		if (numSubjects>3){
+			numSubjects=3;
+		}
+
+		int []studentPos=calculator.addStudent(name, id, age, numSubjects);
+
+		for (int i=0; i<numSubjects; i++){
+
+
+			System.out.println("Type the name of the subject");
+			nameSubject=sc.next();
+
+			System.out.println("Type the name of the credits");
+			creditsSubject=sc.nextInt();
+
+			System.out.println("Type value of the note 1");
+			valueNote1=sc.nextDouble();
+
+			System.out.println("Type value of the note 2");
+			valueNote2=sc.nextDouble();
+
+			System.out.println("Type value of the note 3");
+			valueNote3=sc.nextDouble();
+
+			calculator.addSubjecttoStudent(nameSubject, creditsSubject,valueNote1, valueNote2, valueNote3, i, studentPos);
+		}
 	}
 
 	public void showStudentInfo(){

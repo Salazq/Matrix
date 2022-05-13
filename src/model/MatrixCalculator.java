@@ -127,13 +127,21 @@ public class MatrixCalculator {
 		return pos;
 	}
 
-	public void addStudent(String name, String id, int age, double average) {
+	public int[] addStudent(String name, String id, int age, int numSubjects) {
 		
-		Student newStudent= new Student(name, id, age, average);
+		NoteSubject[] notes= new NoteSubject[numSubjects];
+		Student newStudent= new Student(name, id, age, notes);
 		int [] pos=emptypos();
-
 		students [pos[0]][pos[1]]= newStudent;
 
+		return pos;
+	}
+
+	public void addSubjecttoStudent(String nameSubject, int creditsSubject, double valueNote1, double valueNote2, double valueNote3, 
+		int subPos, int [] studentPos) {
+		
+		NoteSubject newSubject= new NoteSubject(valueNote1, valueNote2, valueNote3, nameSubject, creditsSubject);
+		students [studentPos[0]][studentPos[1]].addSubject(newSubject,subPos);
 	}
 
 	public ArrayList <Student> createList(){
@@ -156,7 +164,6 @@ public class MatrixCalculator {
 				}
 			}
 		}
-
 		return studentsList;
 	}
 

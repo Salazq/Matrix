@@ -9,11 +9,23 @@ public class Init {
 
         Student[][] students=new Student [10][10];
 
-        students=addStudent(students, " Camilo ", "123", 18, 1);
+        NoteSubject[] notes1= new NoteSubject[1];
+        notes1[0]= new NoteSubject(1, 2, 3, "APO", 2);
 
-        students=addStudent(students, "Santiago", "456", 18, 2);
+        students=addStudent(students, " Camilo ", "123", 18, notes1);
 
-        students=addStudent(students, " Nelson ", "789", 16, 3);
+        NoteSubject[] notes2= new NoteSubject[2];
+        notes2[0]= new NoteSubject(1, 2, 3, "APO", 2);
+        notes2[1]= new NoteSubject(2, 3, 4, "MATH", 3);
+
+        students=addStudent(students, "Santiago", "456", 2, notes2);
+
+        NoteSubject[] notes3= new NoteSubject[3];
+        notes3[0]= new NoteSubject(1, 2, 3, "APO", 2);
+        notes3[1]= new NoteSubject(2, 3, 4, "MATH", 3);
+        notes3[2]= new NoteSubject(5, 5, 7, "COE", 4);
+
+        students=addStudent(students, " Nelson ", "789", 3, notes3);
 
     
         return students;
@@ -40,9 +52,9 @@ public class Init {
 		return pos;
 	}
 
-	public Student[][] addStudent(Student[][] students,String name, String id, int age, double average) {
+	public Student[][] addStudent(Student[][] students,String name, String id, int age, NoteSubject[] notes) {
 		
-		Student newStudent= new Student(name, id, age, average);
+		Student newStudent= new Student(name, id, age, notes);
 		int [] pos=emptypos(students);
 
 		students [pos[0]][pos[1]]= newStudent;
