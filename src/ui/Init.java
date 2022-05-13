@@ -10,20 +10,20 @@ public class Init {
         Student[][] students=new Student [10][10];
 
         NoteSubject[] notes1= new NoteSubject[1];
-        notes1[0]= new NoteSubject(1, 2, 3, "APO", 2);
+        notes1[0]= new NoteSubject(3, 4, 5, "APO", 2);
 
         students=addStudent(students, " Camilo ", "123", 18, notes1);
 
         NoteSubject[] notes2= new NoteSubject[2];
-        notes2[0]= new NoteSubject(1, 2, 3, "APO", 2);
-        notes2[1]= new NoteSubject(2, 3, 4, "MATH", 3);
+        notes2[0]= new NoteSubject(2, 2, 4, "APO", 2);
+        notes2[1]= new NoteSubject(2, 5, 4, "MATH", 3);
 
         students=addStudent(students, "Santiago", "456", 2, notes2);
 
         NoteSubject[] notes3= new NoteSubject[3];
-        notes3[0]= new NoteSubject(1, 2, 3, "APO", 2);
-        notes3[1]= new NoteSubject(2, 3, 4, "MATH", 3);
-        notes3[2]= new NoteSubject(5, 5, 7, "COE", 4);
+        notes3[0]= new NoteSubject(1, 4, 3, "APO", 2);
+        notes3[1]= new NoteSubject(3, 3, 4, "MATH", 3);
+        notes3[2]= new NoteSubject(5, 5, 4, "COE", 2);
 
         students=addStudent(students, " Nelson ", "789", 3, notes3);
 

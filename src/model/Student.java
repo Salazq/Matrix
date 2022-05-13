@@ -8,6 +8,7 @@ public class Student {
     private int age;
     private double average;
     private NoteSubject [] notes;
+    private String status;
 
     public Student(String name, String id, int age, NoteSubject[] notes){
 
@@ -15,30 +16,10 @@ public class Student {
         this.age=age;
         this.id=id;
         this.notes= notes;
-    }
-
-    public String getName(){
-
-        return name;
-    }
-
-    public String getId(){
-
-        return id;
-    }
-
-    public String getAge(){
-
-        return ""+age;
-    }
-
-    public String getAverage(){
-
-        return ""+ calculateAverage();
+        average=-1;
     }
 
     public void addSubject(NoteSubject subject, int pos){
-
         notes [pos]=subject;
     }
 
@@ -63,7 +44,6 @@ public class Student {
 		}
 
 		if (notes.length!=0){
-
 			out = printString(notesTable);
 		}
         return out;
@@ -87,7 +67,7 @@ public class Student {
 
         for (int i=0; i<notes.length; i++){
 
-            noteAverage+=(notes[i].getValueNote1()+ notes[i].getValueNote2()+ notes[i].getValueNote3())* notes[i].getCreditsSubject();
+            noteAverage+=((notes[i].getValueNote1()+ notes[i].getValueNote2()+ notes[i].getValueNote3())/3)* notes[i].getCreditsSubject();
             credits+= notes[i].getCreditsSubject();
         }
         double total=(double)Math.round((noteAverage/credits)*100)/100;
@@ -95,7 +75,36 @@ public class Student {
         return total;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public String getId(){
+        return id;
+    }
+
+    public String getAge(){
+        return ""+age;
+    }
+
+    public String getAverage(){
+        return ""+ calculateAverage();
+    }
+
     public String toString (){
-        return "\nName: "+ name +"\nage: "+ age +"\naverage: "+ calculateAverage()+"\n"+"\n\n"+ showSubjects();
+
+        if (average==-1){
+
+            average=calculateAverage();
+
+            if (average<3.5){
+
+                status="Reprobate";
+            }
+            else {
+                status="Aprobate";
+            }
+        }
+        return "\nName: "+ name +"\nage: "+ age +"\naverage: "+ average+"\nStatus: "+ status + "\n\n"+ showSubjects();
     }
 }

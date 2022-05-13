@@ -18,7 +18,6 @@ public class NoteSubject {
         this.creditsSubject=creditsSubject;
     }
 
-
     public double getValueNote1(){
         return valueNote1;
     }
@@ -38,6 +37,5 @@ public class NoteSubject {
     public int getCreditsSubject(){
         return creditsSubject;
     }
-
 
 }

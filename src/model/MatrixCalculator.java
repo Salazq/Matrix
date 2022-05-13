@@ -27,7 +27,6 @@ public class MatrixCalculator {
 		for(int i=0; i< stringMatrices.size(); i++) {
 			out+= "\n" + printString(stringMatrices.get(i));
 		}
-		
 		return out;
 	}
 
@@ -66,7 +65,6 @@ public class MatrixCalculator {
 	}
 	
 	
-
 	public String createMatrix(int type, int rows, int columns) {
 		String out="";
 		switch(type) {
@@ -110,7 +108,6 @@ public class MatrixCalculator {
 		int [] pos= new int[2];
 
 		boolean found=false;
-
 
 		for (int i=0; i<10 && found==false; i++){
 
@@ -159,7 +156,6 @@ public class MatrixCalculator {
 					empty=true;
 				} 
 				else {
-
 					studentsList.add(students[i][e]);
 				}
 			}
@@ -170,24 +166,24 @@ public class MatrixCalculator {
 
 	public String createTable(){
 
+		ArrayList<Student>studentsList=createList();
+
 		String [][]newStudentList;
 		String out="";
 
-		newStudentList= new String[(createList().size())][5];
+		newStudentList= new String[(studentsList.size())][5];
 
-		for (int i=0; i<createList().size(); i++){
+		for (int i=0; i<studentsList.size(); i++){
 
-			Student currentStudent= createList().get(i);
+			Student currentStudent= studentsList.get(i);
 
 			newStudentList[i][0] = "  Student " + (i+1);
 			newStudentList[i][1] = "   "+currentStudent.getName()+"   ";
 			newStudentList[i][2] = "    "+currentStudent.getAge()+"   ";
 			newStudentList[i][3] = "    "+currentStudent.getAverage()+"   ";
 			newStudentList[i][4] = "   "+currentStudent.getId()+"   ";
-					
 		}
-
-		if (createList().size()!=0){
+		if (studentsList.size()!=0){
 
 			out = "\n|          |     Name     |   Age   |  Agerage  |  ID  |\n"+ printString2(newStudentList);
 		}
@@ -198,18 +194,22 @@ public class MatrixCalculator {
 
 		String out="";
 
-		for (int i=0; i<createList().size(); i++){
+		ArrayList<Student>studentsList=createList();
 
-			out+="\n"+ createList().get(i).getName()+"\n";
+		for (int i=0; i<studentsList.size(); i++){
+
+			out+="\n"+ studentsList.get(i).getName()+"\n";
 		}
 		return out;
 	}
 
 	public int searchPos(String id){
-		int pos=-1;
-		for (int i=0; i<createList().size(); i++){
 
-			if (createList().get(i).getId(). equals(id) )
+		ArrayList<Student>studentsList=createList();
+		int pos=-1;
+		for (int i=0; i<studentsList.size(); i++){
+
+			if (studentsList.get(i).getId(). equals(id) )
 			pos=i;
 		}
 		return pos;
@@ -238,5 +238,4 @@ public class MatrixCalculator {
 		stringMatrices.add(strMatrix);
 	}
 	
-
 }

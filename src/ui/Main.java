@@ -42,7 +42,7 @@ public class Main {
 				"(5) Create a student\n" + 
 				"(6) Show students' name\n" +
 				"(7) Search student\n" +
-				"(8) Show students's information\n" +
+				"(8) Show students' information\n" +
 				"(0) To leave the application"
 				);
 		option= sc.nextInt();
